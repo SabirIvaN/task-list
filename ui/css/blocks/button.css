@@ -1,0 +1,35 @@
+.button {
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button--creation {
+    border: 1px solid rgb(86, 135, 241);
+    background-color: rgb(86, 135, 241);
+}
+
+.button--creation:hover {
+    opacity: 0.9;
+}
+
+.button--creation:focus,
+.button--creation:active {
+    opacity: 0.5;
+}
+
+.button--removal {
+    border: 1px solid rgb(241, 86, 91);
+    background-color: rgb(241, 86, 91);
+}
+
+.button--removal:hover {
+    opacity: 0.9;
+}
+
+.button--removal:focus,
+.button--removal:active {
+    opacity: 0.5;
+}

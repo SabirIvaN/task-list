@@ -1,0 +1,9 @@
+/* GLOBAL STYLES */
+@import url("./global.css");
+
+/* BLOCKS STYLES */
+@import url("./blocks/app.css");
+@import url("./blocks/button.css");
+@import url("./blocks/field.css");
+@import url("./blocks/list.css");
+@import url("./blocks/wrap.css");
