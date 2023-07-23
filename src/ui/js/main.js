@@ -5,3 +5,4 @@ import * as fieldText from "./blocks/field/field--text.js";
 import * as buttonCreation from "./blocks/button/button--creation.js"
 import * as appMain from "./blocks/app/app__main.js";
 import * as list from "./blocks/list/list.js";
+import * as listItem from "./blocks/list/list__item.js";
