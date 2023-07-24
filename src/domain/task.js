@@ -1,7 +1,7 @@
-Task = {
-    id: id,
-    title: title,
-    completion: completion
+export class Task {
+    constructor(id, title, completion) {
+        this.id = id;
+        this.title = title;
+        this.completion = completion;
+    }
 };
-
-export { Task };
