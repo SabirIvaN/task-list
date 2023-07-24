@@ -1,4 +1,4 @@
-import * as Render from "../../../../lib/render.js";
+import * as Render from "../../../lib/render.js";
 
 Render.make("main", {
     parent: document.querySelector(".app"),

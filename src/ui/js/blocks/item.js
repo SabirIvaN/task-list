@@ -1,5 +1,5 @@
-import { Tasks } from "../../../../services/reading.js";
-import * as Render from "../../../../lib/render.js";
+import { Tasks } from "../../../services/reading.js";
+import * as Render from "../../../lib/render.js";
 
 Tasks.then(item => item.forEach(item => {
     Render.make("li", {
