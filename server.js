@@ -16,17 +16,6 @@ let mimeTypes = {
 };
  
 http.createServer((request, response) => {
-    if (request.url === "/creation") {
-        let data = "";
-        request.on("data", chunk => {
-            data += chunk;
-        });
-        request.on("end", () => {
-            const database = JSON.parse(fs.readFileSync("./src/database/database.json"));
-            database[Object.keys(database).length] = { id: database[Object.keys(database).length - 1].id + 1, title: data, completion: false  };
-            fs.writeFileSync("./src/database/database.json", JSON.stringify(database));
-        });
-    } else {
         let uri = url.parse(request.url).pathname;
         let filename = path.join(process.cwd(), uri);
 
@@ -57,7 +46,6 @@ http.createServer((request, response) => {
                 response.end();
             });
         });
-    }
 }).listen(parseInt(port, 10));
 
 console.log("Static file server running at http://localhost:" + port);
