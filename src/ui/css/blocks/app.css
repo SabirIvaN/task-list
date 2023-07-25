@@ -3,14 +3,3 @@
     box-shadow: 0 0 5px #000;
     border-radius: 5px;
 }
-
-.app__header {
-    padding: 25px 15px 15px 15px;
-    margin: 0 0 15px 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.app__main {
-    padding: 15px;
-}

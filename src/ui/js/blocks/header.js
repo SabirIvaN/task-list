@@ -2,22 +2,22 @@ import * as Render from "../../../lib/render.js";
 
 Render.make("header", {
     parent: document.querySelector(".app"),
-    attr: { class: "app__header" },
+    attr: { class: "app-header" },
     append: [
         ["input", {
-            parent: document.querySelector(".app__header"),
+            parent: document.querySelector(".app-header"),
             attr: {
                 id: "task-title",
-                class: "field field--text",
+                class: "field-text",
                 type: "text",
                 placeholder: "Введите Вашу задачу..."
             }
         }],
         ["button", {
-            parent: document.querySelector(".app__header"),
+            parent: document.querySelector(".app-header"),
             append: "Создать задачу",
             attr: { 
-                class: "button button--creation" 
+                class: "button-creation" 
             }
         }]
     ]

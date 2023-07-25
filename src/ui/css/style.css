@@ -3,7 +3,8 @@
 
 /* BLOCKS STYLES */
 @import url("./blocks/app.css");
-@import url("./blocks/button.css");
-@import url("./blocks/field.css");
+@import url("./blocks/header.css");
+@import url("./blocks/item.css");
 @import url("./blocks/list.css");
+@import url("./blocks/main.css");
 @import url("./blocks/wrap.css");

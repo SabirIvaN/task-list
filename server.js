@@ -1,51 +1,32 @@
-let fs = require("fs");
-let url = require("url");
-let http = require("http");
-let path = require("path");
+"use strict";
 
-let port = process.argv[2] || 8888;
-let mimeTypes = {
-    "js": "text/javascript",
-    "css": "text/css",
-    "png": "image/png",
-    "jpg": "image/jpeg",
-    "svg": "image/svg+xml",
-    "html": "text/html",
-    "jpeg": "image/jpeg",
-    "json": "application/json"
+const fs = require("fs");
+const http = require("http");
+const path = require("path");
+const config = require("./config.js");
+
+const errorHandler = (res) => {
+	res.writeHead(404);
+	res.end();
 };
- 
-http.createServer((request, response) => {
-        let uri = url.parse(request.url).pathname;
-        let filename = path.join(process.cwd(), uri);
 
-        fs.exists(filename, (exists) => {
-            if(!exists) {
-                response.writeHead(404, { "Content-Type": "text/plain" });
-                response.write("404 Not Found\n");
-                response.end();
-                return;
-            }
+const readFile = (localPath, res, fileMimeType) => {
+	fs.readFile(localPath, (error, data) => {
+		res.setHeader("Content-Type", fileMimeType);
+		res.statusCode = 200;
+		res.end(data);
+	});
+};
 
-            if (fs.statSync(filename).isDirectory()) filename += './public/index.html';
-     
-            fs.readFile(filename, "binary", (err, file) => {
-                if(err) {        
-                    response.writeHead(500, {"Content-Type": "text/plain"});
-                    response.write(err + "\n");
-                    response.end();
-                    return;
-                }
-          
-                let mimeType = mimeTypes[filename.split('.').pop()];
-          
-                if (!mimeType) mimeType = 'text/plain';
-          
-                response.writeHead(200, { "Content-Type": mimeType });
-                response.write(file, "binary");
-                response.end();
-            });
-        });
-}).listen(parseInt(port, 10));
+http.createServer((req, res) => {
+	let fileName = req.url === "/" ? "public/index.html" : req.url;
+	let localPath = path.join(__dirname, fileName);
+	let ext = path.extname(fileName);
+	let fileMimeType = config.mimeTypes[ext];
 
-console.log("Static file server running at http://localhost:" + port);
+	fs.exists(localPath, (status) => {
+		status ? readFile(localPath, res, fileMimeType) : errorHandler(res);
+	});
+}).listen(config.port);
+
+console.log("Static file server running at http://localhost:" + config.port);

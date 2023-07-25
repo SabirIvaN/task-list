@@ -6,30 +6,30 @@ tasks.forEach(item => {
         append: [
             ["h2", {
                 append: item.title,
-                attr: { class: "list__title" }
+                attr: { class: "item-title" }
             }],
             ["input", {
                 attr: {
                     type: "checkbox",
                     id: "checkbox-" + item.id,
-                    class: "field field--checkbox"
+                    class: "field-checkbox"
                 }
             }],
             ["label", {
                 attr: {
                     for: "checkbox-" + item.id,
-                    class: "list__label"
+                    class: "field-label"
                 }
             }],
             ["button", {
                 append: "Удалить задачу",
                 attr: {
-                    class: "button button--removal"
+                    class: "button-removal"
                 }
             }]
         ],
         parent: document.querySelector(".list"),
-        attr: { class: "list__item" }
+        attr: { class: "list-item" }
     });
 });
 
