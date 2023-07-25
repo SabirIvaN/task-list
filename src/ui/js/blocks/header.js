@@ -1,4 +1,5 @@
 import * as Render from "../../../lib/render.js";
+import { creation } from "../../../services/creation.js";
 
 Render.make("header", {
     parent: document.querySelector(".app"),
@@ -17,7 +18,8 @@ Render.make("header", {
             parent: document.querySelector(".app-header"),
             append: "Создать задачу",
             attr: { 
-                class: "button-creation" 
+                class: "button-creation",
+                onclick: () => creation()
             }
         }]
     ]

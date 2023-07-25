@@ -1,42 +1,48 @@
-import { tasks } from "../../../services/reading.js";
 import * as Render from "../../../lib/render.js";
+import { removal } from "../../../services/removal.js";
 
-tasks.forEach(item => {
-    Render.make("li", {
-        append: [
-            ["h2", {
-                append: item.title,
-                attr: { class: "item-title" }
-            }],
-            ["input", {
-                attr: {
-                    type: "checkbox",
-                    id: "checkbox-" + item.id,
-                    class: "field-checkbox"
-                }
-            }],
-            ["label", {
-                attr: {
-                    for: "checkbox-" + item.id,
-                    class: "field-label"
-                }
-            }],
-            ["button", {
-                append: "Удалить задачу",
-                attr: {
-                    class: "button-removal"
-                }
-            }]
-        ],
-        parent: document.querySelector(".list"),
-        attr: { class: "list-item" }
-    });
-});
+let tasks = window.localStorage.getItem("tasks");
 
-for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].completion === true) {
-        document.getElementById("checkbox-" + tasks[i].id).checked = true;
-    } else {
-        document.getElementById("checkbox-" + tasks[i].id).checked = false;
+if (!(tasks === null)) {
+    tasks = JSON.parse(tasks);
+
+    for (let i = 0; i < tasks.length; i++) {
+        Render.make("li", {
+            append: [
+                ["h2", {
+                    append: tasks[i].title,
+                    attr: { class: "item-title" }
+                }],
+                ["input", {
+                    attr: {
+                        type: "checkbox",
+                        id: "checkbox-" + i,
+                        class: "field-checkbox"
+                    }
+                }],
+                ["label", {
+                    attr: {
+                        for: "checkbox-" + i,
+                        class: "field-label"
+                    }
+                }],
+                ["button", {
+                    append: "Удалить задачу",
+                    attr: {
+                        class: "button-removal",
+                        onclick: () => removal(i)
+                    },
+                }]
+            ],
+            parent: document.querySelector(".list"),
+            attr: { class: "list-item" }
+        });
     }
+    
+    /*
+    tasks.forEach(item => {
+        if (item.completion === true) document.getElementById("checkbox-" + item.id).checked = true;
+        else document.getElementById("checkbox-" + item.id).checked = false;
+    });
+    */
 }
