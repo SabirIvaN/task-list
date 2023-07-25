@@ -19,9 +19,7 @@ Render.make("header", {
             append: "Создать задачу",
             attr: { 
                 class: "button button--creation",
-                onclick: () => {
-                    creation();
-                }
+                onclick: () => creation()
             }
         }]
     ]
