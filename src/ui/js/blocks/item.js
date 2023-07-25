@@ -1,7 +1,7 @@
-import { Tasks } from "../../../services/reading.js";
+import { tasks } from "../../../services/reading.js";
 import * as Render from "../../../lib/render.js";
 
-Tasks.then(item => item.forEach(item => {
+tasks.then(item => item.forEach(item => {
     Render.make("li", {
         append: [
             ["h2", {

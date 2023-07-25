@@ -1,8 +1,7 @@
 import { Task } from "../domain/task.js";
+import { database } from "./connection.js";
 
-const database = import("../database/database.json", { assert: { type: 'json' } });
-
-export const Tasks = database.then(item => {
+export const tasks = database.then(item => {
     let array = [];
     item.default.forEach(item => {
         array.push(new Task(item.id, item.title, item.completion));
