@@ -1,3 +1,4 @@
+// Function to complete and resume a task
 export const completion = (index) => {
     let tasks = localStorage.getItem("tasks");
 

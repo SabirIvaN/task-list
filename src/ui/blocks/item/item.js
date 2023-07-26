@@ -1,13 +1,14 @@
-import * as Render from "../../../lib/render.js";
-import { completion } from "../../../application/completion.js";
-import { removal } from "../../../application/removal.js";
-import item from './item.css' assert { type: 'css' };
+import * as Render from "../../../lib/render.js";                   // Importing a Component Render Function
+import { completion } from "../../../application/completion.js";    // Import functions for complete and resume Tasks
+import { removal } from "../../../application/removal.js";          // Import feature to remove Tasks
+import item from './item.css' assert { type: 'css' };               // Import styles for a component
 
-document.adoptedStyleSheets.push(item);
-ShadowRoot.adoptedStyleSheets.push(item);
+document.adoptedStyleSheets.push(item);                             // Adding styles to the document
+ShadowRoot.adoptedStyleSheets.push(item);                           // Adding styles to shadow root
 
-let tasks = window.localStorage.getItem("tasks");
+let tasks = window.localStorage.getItem("tasks");                   // Getting an array of tasks from local storage
 
+// Render components if task array is not empty
 if (!(tasks === null)) {
     tasks = JSON.parse(tasks);
 

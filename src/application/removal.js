@@ -1,3 +1,4 @@
+// Function to delete the Tasks object
 export const removal = (index) => {
     let tasks = localStorage.getItem("tasks");
 

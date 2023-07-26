@@ -1,3 +1,4 @@
+// Function for rendering components
 export const make = (tagName, data) => {
     var e = document.createElement(tagName);
     if (data) {
@@ -11,17 +12,13 @@ export const make = (tagName, data) => {
     return e;
 };
 
+// Function to select parent element
 export const makeAppend = (e, data) => {
     if (data instanceof Array) for (let row of data) e.append(row instanceof Array ? make(...row) : row);
     else e.append(data);
 };
 
-export const purge = (e, amt) => {
-    let dir = amt < 0 ? "firstChild" : "lastChild";
-    amt = Math.abs(amt);
-    while (amt--) e.removeChild(e[dir]);
-};
-
+// Function to set attribute
 export const setAttribute = (e, name, value) => {
     if (value instanceof Array || ("object" == typeof value) || ("function" == typeof value)) e[name] = value;
     else e.setAttribute(name === "className" ? "class" : name, value);

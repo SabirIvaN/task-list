@@ -1,5 +1,6 @@
-import { Task } from "../domain/task.js";
+import { Task } from "../domain/task.js";   // Importing a class to create a Tasks object
 
+// Function to create a task
 export const creation = () => {
     let tasks = window.localStorage.getItem("tasks");
     let value = document.getElementById("task-title").value;

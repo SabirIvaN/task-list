@@ -1,10 +1,11 @@
-import * as Render from "../../../lib/render.js";
-import { creation } from "../../../application/creation.js";
-import header from './header.css' assert { type: 'css' };
+import * as Render from "../../../lib/render.js";               // Importing a Component Render Function
+import { creation } from "../../../application/creation.js";    // Import function to create a Task
+import header from './header.css' assert { type: 'css' };       // Import styles for a component
 
-document.adoptedStyleSheets.push(header);
-ShadowRoot.adoptedStyleSheets.push(header);
+document.adoptedStyleSheets.push(header);                       // Adding styles to the document
+ShadowRoot.adoptedStyleSheets.push(header);                     // Adding styles to shadow root
 
+// Render the component
 Render.make("header", {
     parent: document.querySelector(".app"),
     attr: { class: "app-header" },
