@@ -1,6 +1,10 @@
 import * as Render from "../../../lib/render.js";
-import { click } from "../../../application/click.js";
+import { completion } from "../../../application/completion.js";
 import { removal } from "../../../application/removal.js";
+import item from './item.css' assert { type: 'css' };
+
+document.adoptedStyleSheets.push(item);
+ShadowRoot.adoptedStyleSheets.push(item);
 
 let tasks = window.localStorage.getItem("tasks");
 
@@ -25,7 +29,7 @@ if (!(tasks === null)) {
                     attr: {
                         for: "checkbox-" + i,
                         class: "field-label",
-                        onclick: () => click(i)
+                        onclick: () => completion(i)
                     }
                 }],
                 ["button", {

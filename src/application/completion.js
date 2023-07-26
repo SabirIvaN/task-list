@@ -1,4 +1,4 @@
-export const click = (index) => {
+export const completion = (index) => {
     let tasks = localStorage.getItem("tasks");
 
     try {
