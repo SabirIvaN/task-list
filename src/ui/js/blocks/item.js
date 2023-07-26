@@ -1,5 +1,6 @@
 import * as Render from "../../../lib/render.js";
-import { removal } from "../../../services/removal.js";
+import { click } from "../../../application/click.js";
+import { removal } from "../../../application/removal.js";
 
 let tasks = window.localStorage.getItem("tasks");
 
@@ -23,7 +24,8 @@ if (!(tasks === null)) {
                 ["label", {
                     attr: {
                         for: "checkbox-" + i,
-                        class: "field-label"
+                        class: "field-label",
+                        onclick: () => click(i)
                     }
                 }],
                 ["button", {
@@ -39,10 +41,8 @@ if (!(tasks === null)) {
         });
     }
     
-    /*
-    tasks.forEach(item => {
-        if (item.completion === true) document.getElementById("checkbox-" + item.id).checked = true;
-        else document.getElementById("checkbox-" + item.id).checked = false;
-    });
-    */
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].completion === true) document.getElementById("checkbox-" + i).checked = true;
+        else document.getElementById("checkbox-" + i).checked = false;
+    }
 }
