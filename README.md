@@ -1,6 +1,6 @@
 # Task list
 
-A project for teaching students of the online programming school for children "IT Doma" in the direction of HTML, CSS &amp; JavaScript.
+A project to teach students of the online programming school for children "IT House" in the direction of HTML, CSS &amp; JavaScript to create applications in native JavaScript using clean architecture.
 
 ## Starting
 
