@@ -1,6 +1,6 @@
 // Function to complete and resume a task
 export const completion = (index) => {
-    let tasks = localStorage.getItem("tasks");
+    let tasks = localStorage.getItem('tasks');
 
     try {
         tasks = JSON.parse(tasks);
@@ -11,9 +11,9 @@ export const completion = (index) => {
             tasks[index].completion = false;
         }
 
-        window.localStorage.setItem("tasks", JSON.stringify(tasks));
+        window.localStorage.setItem('tasks', JSON.stringify(tasks));
         window.location.reload();
     } catch (e) {
-        window.localStorage.removeItem("tasks");
+        window.localStorage.removeItem('tasks');
     }
 };
