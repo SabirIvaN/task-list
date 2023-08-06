@@ -3,45 +3,58 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    padding: 25px 0 25px 0;
+
     border-bottom: 1px solid #aeaeae;
+
+    padding: 25px 0 25px 0;
 }
 
 .list-item:last-child {
-    padding: 25px 0 15px 0;
     border: none;
+
+    padding: 25px 0 15px 0;
 }
 
 .item-title {
-    display: block;
     width: 40%;
+
+    display: block;
+
     font-size: 20px;
     font-weight: bold;
+
     margin: 0;
     padding: 0;
 }
 
 .field-label {
     font-size: 0;
+
     position: relative;
+
     cursor: pointer;
 }
 
 .field-label::before {
     content: "";
+
     display: block;
+
     width: 34px;
     height: 34px;
+
     border: 3px solid #888;
     border-radius: 5px;
 }
 
 .field-checkbox:checked + .field-label::after {
     content: "✔";
+
     position: absolute;
     top: 3px;
     left: 7px;
-    color: rgb(28, 226, 64);
+
+    color: #00ff00;
     font-size: 32px;
 }
 
@@ -52,11 +65,14 @@
 .button-removal {
     color: #fff;
     font-size: 16px;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
+
     border: 1px solid rgb(241, 86, 91);
+    border-radius: 5px;
+
     background-color: rgb(241, 86, 91);
+    cursor: pointer;
+
+    padding: 10px;
 }
 
 .button-removal:hover {

@@ -1,53 +1,54 @@
-import * as Render from "../../../lib/render.js";                   // Importing a Component Render Function
-import { completion } from "../../../application/completion.js";    // Import functions for complete and resume Tasks
-import { removal } from "../../../application/removal.js";          // Import feature to remove Tasks
+import * as Render from '../../../lib/render.js';                   // Importing a Component Render Function
+import { completion } from '../../../application/completion.js';    // Import functions for complete and resume Tasks
+import { removal } from '../../../application/removal.js';          // Import feature to remove Tasks
 import item from './item.css' assert { type: 'css' };               // Import styles for a component
 
 document.adoptedStyleSheets.push(item);                             // Adding styles to the document
 ShadowRoot.adoptedStyleSheets.push(item);                           // Adding styles to shadow root
 
-let tasks = window.localStorage.getItem("tasks");                   // Getting an array of tasks from local storage
+let tasks = window.localStorage.getItem('tasks');                   // Getting an array of tasks from local storage
 
 // Render components if task array is not empty
 if (!(tasks === null)) {
+
     tasks = JSON.parse(tasks);
 
     for (let i = 0; i < tasks.length; i++) {
-        Render.make("li", {
+        Render.make('li', {
             append: [
-                ["h2", {
+                ['h2', {
                     append: tasks[i].title,
-                    attr: { class: "item-title" }
+                    attr: { class: 'item-title' }
                 }],
-                ["input", {
+                ['input', {
                     attr: {
-                        type: "checkbox",
-                        id: "checkbox-" + i,
-                        class: "field-checkbox"
+                        type: 'checkbox',
+                        id: 'checkbox-' + i,
+                        class: 'field-checkbox'
                     }
                 }],
-                ["label", {
+                ['label', {
                     attr: {
-                        for: "checkbox-" + i,
-                        class: "field-label",
+                        for: 'checkbox-' + i,
+                        class: 'field-label',
                         onclick: () => completion(i)
                     }
                 }],
-                ["button", {
-                    append: "Удалить задачу",
+                ['button', {
+                    append: 'Удалить задачу',
                     attr: {
-                        class: "button-removal",
+                        class: 'button-removal',
                         onclick: () => removal(i)
                     },
                 }]
             ],
-            parent: document.querySelector(".list"),
-            attr: { class: "list-item" }
+            parent: document.querySelector('.list'),
+            attr: { class: 'list-item' }
         });
     }
     
     for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].completion === true) document.getElementById("checkbox-" + i).checked = true;
-        else document.getElementById("checkbox-" + i).checked = false;
+        if (tasks[i].completion === true) document.getElementById('checkbox-' + i).checked = true;
+        else document.getElementById('checkbox-' + i).checked = false;
     }
 }
