@@ -1,8 +1,8 @@
 import * as Render from '../../../lib/render.js';       // Importing a Component Render Function
-import main from './main.css' assert { type: 'css' };   // Import styles for a component
+import style from './main.css' assert { type: 'css' };  // Import styles for a component
 
-document.adoptedStyleSheets.push(main);                 // Adding styles to the document
-ShadowRoot.adoptedStyleSheets.push(main);               // Adding styles to shadow root
+document.adoptedStyleSheets.push(style);                // Adding styles to the document
+ShadowRoot.adoptedStyleSheets.push(style);              // Adding styles to shadow root
 
 // Render the component
 Render.make('main', {

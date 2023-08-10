@@ -1,9 +1,9 @@
 import * as Render from '../../../lib/render.js';               // Importing a Component Render Function
 import { creation } from '../../../application/creation.js';    // Import function to create a Task
-import header from './header.css' assert { type: 'css' };       // Import styles for a component
+import style from './header.css' assert { type: 'css' };        // Import styles for a component
 
-document.adoptedStyleSheets.push(header);                       // Adding styles to the document
-ShadowRoot.adoptedStyleSheets.push(header);                     // Adding styles to shadow root
+document.adoptedStyleSheets.push(style);                        // Adding styles to the document
+ShadowRoot.adoptedStyleSheets.push(style);                      // Adding styles to shadow root
 
 // Render the component
 Render.make('header', {
