@@ -1,5 +1,5 @@
-import * as Render from '../../../lib/render.js';               // Importing a Component Render Function
-import { creation } from '../../../application/creation.js';    // Import function to create a Task
+import * as Render from '../../lib/render.js';               // Importing a Component Render Function
+import { creation } from '../../application/creation.js';    // Import function to create a Task
 import style from './header.css' assert { type: 'css' };        // Import styles for a component
 
 document.adoptedStyleSheets.push(style);                        // Adding styles to the document
