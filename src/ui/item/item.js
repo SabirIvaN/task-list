@@ -1,6 +1,6 @@
-import * as Render from '../../lib/render.js';                   // Importing a Component Render Function
-import { completion } from '../../application/completion.js';    // Import functions for complete and resume Tasks
-import { removal } from '../../application/removal.js';          // Import feature to remove Tasks
+import * as Render from '../../lib/render.js';                      // Importing a Component Render Function
+import { completion } from '../../application/completion.js';       // Import functions for complete and resume Tasks
+import { removal } from '../../application/removal.js';             // Import feature to remove Tasks
 import style from './item.css' assert { type: 'css' };              // Import styles for a component
 
 document.adoptedStyleSheets.push(style);                            // Adding styles to the document
