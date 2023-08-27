@@ -9,7 +9,7 @@ ShadowRoot.adoptedStyleSheets.push(style);                          // Adding st
 let tasks = window.localStorage.getItem('tasks');                   // Getting an array of tasks from local storage
 
 // Render components if task array is not empty
-if (!(tasks === null)) {
+if (tasks !== null) {
 
     tasks = JSON.parse(tasks);
 
@@ -45,9 +45,7 @@ if (!(tasks === null)) {
             parent: document.querySelector('.list'),
             attr: { class: 'list-item' }
         });
-    }
-    
-    for (let i = 0; i < tasks.length; i++) {
+        
         if (tasks[i].completion === true) document.getElementById('checkbox-' + i).checked = true;
         else document.getElementById('checkbox-' + i).checked = false;
     }
