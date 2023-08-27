@@ -19,9 +19,9 @@ export const creation = () => {
             window.localStorage.setItem('tasks', JSON.stringify(tasks));
             window.location.reload();
         } catch (e) {
-            window.localStorage.removeItem('tasks');
-            
             console.log(e);
+            
+            window.localStorage.removeItem('tasks');
         }
     }
 };
