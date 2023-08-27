@@ -14,6 +14,8 @@ export const removal = (index) => {
         window.localStorage.setItem('tasks', JSON.stringify(filtered));
         window.location.reload();
     } catch (e) {
+        console.log(e);
+        
         window.localStorage.removeItem('tasks');
     }
 }

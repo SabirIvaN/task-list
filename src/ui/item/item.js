@@ -13,11 +13,11 @@ if (tasks !== null) {
 
     tasks = JSON.parse(tasks);
 
-    for (let i = 0; i < tasks.length; i++) {
+    tasks.forEach((task, i) => {
         Render.make('li', {
             append: [
                 ['h2', {
-                    append: tasks[i].title,
+                    append: task.title,
                     attr: { class: 'item-title' }
                 }],
                 ['input', {
@@ -48,5 +48,5 @@ if (tasks !== null) {
         
         if (tasks[i].completion === true) document.getElementById('checkbox-' + i).checked = true;
         else document.getElementById('checkbox-' + i).checked = false;
-    }
+    });
 }

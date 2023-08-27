@@ -14,6 +14,8 @@ export const completion = (index) => {
         window.localStorage.setItem('tasks', JSON.stringify(tasks));
         window.location.reload();
     } catch (e) {
+        console.log(e);
+        
         window.localStorage.removeItem('tasks');
     }
 };
