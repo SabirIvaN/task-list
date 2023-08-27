@@ -20,6 +20,8 @@ export const creation = () => {
             window.location.reload();
         } catch (e) {
             window.localStorage.removeItem('tasks');
+            
+            console.log(e);
         }
     }
 };
