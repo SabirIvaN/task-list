@@ -1,17 +1,12 @@
 // Function to delete the Tasks object
 export const removal = (index) => {
-    let tasks = localStorage.getItem('tasks');
+    let tasks = window.localStorage.getItem('tasks');
 
     try {
         tasks = JSON.parse(tasks);
-        
-        delete tasks[index];
+        tasks = tasks.filter((x) => x !== tasks[index]);
 
-        let filtered = tasks.filter((x) => {
-            return x !== null;
-        });
-
-        window.localStorage.setItem('tasks', JSON.stringify(filtered));
+        window.localStorage.setItem('tasks', JSON.stringify(tasks));
         window.location.reload();
     } catch (e) {
         console.log(e);
